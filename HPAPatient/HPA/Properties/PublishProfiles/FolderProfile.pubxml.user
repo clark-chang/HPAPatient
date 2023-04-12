@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\MIS\HPAPATIENT</_PublishTargetUrl>
+    <History>True|2022-04-18T07:48:03.2710000Z;True|2022-04-15T16:11:27.2400000+08:00;True|2022-04-07T16:41:28.7111321+08:00;True|2022-04-07T14:50:51.8370000+08:00;True|2022-04-01T17:01:00.8390000+08:00;True|2022-04-01T16:41:02.5300000+08:00;True|2022-04-01T14:04:56.3131541+08:00;True|2022-04-01T13:04:53.4240000+08:00;True|2022-04-01T12:07:23.9140000+08:00;True|2022-04-01T08:41:47.2070000+08:00;True|2022-03-31T19:54:26.6630000+08:00;True|2022-03-31T19:13:36.8310000+08:00;True|2022-03-31T17:15:29.3210000+08:00;</History>
+  </PropertyGroup>
+</Project>

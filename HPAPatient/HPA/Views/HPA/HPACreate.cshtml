@@ -1,0 +1,133 @@
+﻿@model HPA.Models.EmpHP
+
+@{
+    ViewData["Title"] = "員榮醫院-全民版";
+    string imagePath = "/images/healthanalysis.gif";
+    //string imagePath = @"Page.ResolveUrl(~/Images /copy.gif)";
+    //string imagePath = @"~/images/health_analysis.gif";
+}
+<h4>分析表單</h4>
+<div class="row ">
+    <div class="col-md-8 font-weight-light">
+        <form asp-action="HPACreate" class="row g-3 font-weight-bold">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-6">
+                <label asp-for="emp_specialid" class="control-label">
+                    身分證字號
+                    @if (TempData["check"] == "select")
+                    {
+                        @TempData["idno"]<br />
+                        @TempData["birthdate"]<br />
+                        @TempData["intage"]<br />
+                        @TempData["employeeno"]
+                    }
+                    @if (TempData["check"] == "null")
+                    {
+                        <font color="red">&nbsp;&nbsp;&nbsp;請輸入正確身分證字號</font>
+                    }
+                </label>
+                <input asp-for="emp_specialid" class="form-control" placeholder="請輸入大寫字母"/>
+                <span asp-validation-for="emp_specialid" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="emp_sex" class="control-label"></label>
+                <br />
+                <input type="radio" value="F" asp-for="emp_sex" />女
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="radio" value="M" asp-for="emp_sex" />男
+                <span asp-validation-for="emp_sex" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="height" class="control-label"></label>
+                <input asp-for="height" class="form-control" />
+                <span asp-validation-for="height" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="weight" class="control-label"></label>
+                <input asp-for="weight" class="form-control" />
+                <span asp-validation-for="weight" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="waist_circumference" class="control-label"></label>
+                <input asp-for="waist_circumference" class="form-control" />
+                <span asp-validation-for="waist_circumference" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="systolic_blood_pressure" class="control-label"></label>
+                <input asp-for="systolic_blood_pressure" class="form-control" />
+                <span asp-validation-for="systolic_blood_pressure" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="total_cholesterol" class="control-label"></label>
+                <input asp-for="total_cholesterol" class="form-control" />
+                <span asp-validation-for="total_cholesterol" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="hdl_cholesterol" class="control-label"></label>
+                <input asp-for="hdl_cholesterol" class="form-control" />
+                <span asp-validation-for="hdl_cholesterol" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="ldl_cholesterol" class="control-label"></label>
+                <input asp-for="ldl_cholesterol" class="form-control" />
+                <span asp-validation-for="ldl_cholesterol" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="triglycerides" class="control-label"></label>
+                <input asp-for="triglycerides" class="form-control" />
+                <span asp-validation-for="triglycerides" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="fasting_plasma_glucose" class="control-label"></label>
+                <input asp-for="fasting_plasma_glucose" class="form-control" />
+                <span asp-validation-for="fasting_plasma_glucose" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="diabetes" class="control-label"></label>
+                <br />
+                <input type="radio" value="Y" asp-for="diabetes" />有
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="radio" value="N" asp-for="diabetes" />沒有
+                <span asp-validation-for="diabetes" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="hypertension" class="control-label"></label>
+                <br />
+                <input type="radio" value="Y" asp-for="hypertension" />有
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="radio" value="N" asp-for="hypertension" />沒有
+                <span asp-validation-for="hypertension" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="smoking" class="control-label"></label>
+                <br />
+                <input type="radio" value="Y" asp-for="smoking" />有
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="radio" value="N" asp-for="smoking" />沒有
+                <span asp-validation-for="smoking" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-12">
+                <input type="submit" value="傳送" class="btn btn-primary col-md-12 font-weight-bold" />
+                <div align="right">
+                    <img src=@imagePath width=40% />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@*<div class="row col-md-6">
+    @if (TempData["check"] == "select")
+    {
+        @TempData["idno"]<br />
+        @TempData["birthdate"]<br />
+        @TempData["intage"]<br />
+        @TempData["employeeno"]
+    }
+    @if (TempData["check"] == "null")
+    {
+        <h1><font color="red">&nbsp;&nbsp;&nbsp;請輸入正確身分證字號</font></h1>
+    }
+</div>*@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
